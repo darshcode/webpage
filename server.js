@@ -8,11 +8,30 @@ import session from "express-session";
 import path, {dirname} from 'path'
 import { fileURLToPath } from "url";
 
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({
+    extended:false
+}))
+app.use(cookieParser())
+app.use(express.static(path.join(__dirname, '../public')));             //contains css and scripts uploaded to client.
+app.use(session({
+    secret: 'mySecret',
+    saveUninitialized: false,
+    resave: false
+}))
+
+
 //getting path from app to __dirname
 const __dirname = dirname(fileURLToPath(import.meta.url))      
 
 // instantiate app-server
 const app = express();
+
+//setup viewEngine ejs
+app.set('views',path.join(__dirname,'/views'));
+app.set('view engine', 'ejs');
+
 
 // custom middleware
 function helloWorld(req, res, next){
