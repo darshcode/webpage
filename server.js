@@ -8,6 +8,15 @@ import session from "express-session";
 import path, {dirname} from 'path'
 import { fileURLToPath } from "url";
 
+
+
+
+//getting path from app to __dirname
+const __dirname = dirname(fileURLToPath(import.meta.url))      
+
+// instantiate app-server
+const app = express();                                                  //intatiate app first. if app does not exist,we can do anything to it.
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({
@@ -20,14 +29,6 @@ app.use(session({
     saveUninitialized: false,
     resave: false
 }))
-
-
-//getting path from app to __dirname
-const __dirname = dirname(fileURLToPath(import.meta.url))      
-
-// instantiate app-server
-const app = express();
-
 //setup viewEngine ejs
 app.set('views',path.join(__dirname,'/views'));
 app.set('view engine', 'ejs');
