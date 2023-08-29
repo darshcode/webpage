@@ -11,6 +11,10 @@ import { fileURLToPath } from "url";
 //getting path from app to __dirname
 const __dirname = dirname(fileURLToPath(import.meta.url))   
 
+//configuration module
+import { secret } from "../config/config.js";
+
+
 //import router
 import indexRouter from './routes/index.routes.server.js'
 
@@ -29,7 +33,7 @@ app.use(express.urlencoded({
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, '../public')));             //contains css and scripts uploaded to client.
 app.use(session({
-    secret: 'mySecret',
+    secret: secret,
     saveUninitialized: false,
     resave: false
 }))
