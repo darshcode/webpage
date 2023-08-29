@@ -6,10 +6,12 @@
     <title>
         <%= title %>
     </title>
-</head>
+    <link rel="stylesheet" href="/content/app.css">
+    </head>
 
 <!-- header body-->
 <header>
+    <%= title %>
     <!-- header navigation bar-->
     <%- include('components/header.ejs') %>
 </header>
@@ -18,15 +20,17 @@
 <!-- body-->
 <body>
 
+    <!-- when use the about route, the page loads the accroding page  about -->
     <main>
-       <%- include('content/home.ejs') %> 
+        <%- include('content/' + page + '.ejs') %> 
     </main>
     
 <footer>
     <!-- footer sectiion -->
-    <%- include('components/footer.ejs') %>
+        <%- include('components/footer.ejs') %> 
 </footer>
 
+<script src="./scripts/app.js"></script>
 </body>
 <!-- end of body-->
 
