@@ -17,7 +17,6 @@ import mongoose from "mongoose";
 //configuration module
 import { secret, MongoURI } from "../config/config.js";
 
-
 //import router
 import indexRouter from './routes/index.routes.server.js'
 

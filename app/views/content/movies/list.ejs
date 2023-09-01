@@ -1,0 +1,32 @@
+<div>
+    <h1>
+        Movie List
+    </h1>
+<div style="background-color: chocolate;">
+    <table style="background-color: antiquewhite;">
+        <thead style="background-color: aliceblue;">
+            <tr>
+                <th> Name</th>
+                <th> Year</th>
+                <th> Director</th>
+                <th> Genere</th>
+                <th> Runtime</th> 
+            </tr>
+        </thead>
+
+        <!-- repeatable row-->
+        <tbody id="movieList">
+            <% for(let count = 0; count < movies.length; count + 1){ %>
+            <tr>
+                <%= count + 1 %>
+                <td> <%= movies[count].Name %></td>
+                <td> <%= movies[count].Year %></td>
+                <td> <%= movies[count].Director %></td>
+                <td> <%= movies[count].Genere %></td>
+                <td> <%= movies[count].Runtime %></td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+</div>
+</div>
